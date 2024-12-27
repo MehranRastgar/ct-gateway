@@ -12,7 +12,16 @@ builder.Services.AddOcelot(builder.Configuration);
 
 // Build the application
 var app = builder.Build();
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.WithOrigins(["http://localhost:3026", "http://localhost:3000", "https://bugtech.ir", "https://cms.bugtech.ir"]) // origins
+             .AllowAnyMethod()
+             .AllowAnyHeader()
+             .AllowCredentials();
+    });
+});
 // Add a health check endpoint
 app.MapGet("/health", () => Results.Ok(new { Status = "Healthy", Timestamp = DateTime.UtcNow }));
 
@@ -26,7 +35,7 @@ else
     app.UseExceptionHandler("/Home/Error"); // Handle errors in production
     app.UseHsts(); // Use HTTP Strict Transport Security
 }
-
+app.UseCors("CorsPolicy");
 // Use Ocelot middleware as the last step
 app.UseOcelot().Wait();
 
