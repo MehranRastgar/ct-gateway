@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-ct-gateway-to-product-service
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: product-service
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: ct-gateway
+      ports:
+        - protocol: TCP
+          port: 80

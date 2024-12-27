@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ct-gateway
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ct-gateway
+  template:
+    metadata:
+      labels:
+        app: ct-gateway
+    spec:
+      containers:
+        - name: ct-gateway
+          image: ct-gateway:v1
+          ports:
+            - containerPort: 7001
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: ASPNETCORE_URLS
+              value: "http://+:7001"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ct-gateway
+spec:
+  selector:
+    app: ct-gateway
+  ports:
+    - name: http-7001
+      port: 7001
+      targetPort: 7001
+      nodePort: 30001
+
+    - name: http-7002
+      port: 7002
+      targetPort: 7002
+      nodePort: 30002
+    - name: http-5221
+      port: 5221
+      targetPort: 5221
+      nodePort: 30003
+
+  type: LoadBalancer
