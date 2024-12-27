@@ -11,7 +11,6 @@ builder.Configuration.AddJsonFile("ocelot.json", optional: true, reloadOnChange:
 builder.Services.AddOcelot(builder.Configuration);
 
 // Build the application
-var app = builder.Build();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
@@ -22,6 +21,7 @@ builder.Services.AddCors(options =>
              .AllowCredentials();
     });
 });
+var app = builder.Build();
 // Add a health check endpoint
 app.MapGet("/health", () => Results.Ok(new { Status = "Healthy", Timestamp = DateTime.UtcNow }));
 
