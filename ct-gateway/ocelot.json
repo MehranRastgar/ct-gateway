@@ -11,6 +11,18 @@
       ],
       "UpstreamPathTemplate": "/api/product",
       "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/product/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "ctcom.product-service",
+          "Port": 7128
+        }
+      ],
+      "UpstreamPathTemplate": "/api/product/{id}",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"]
     }
   ],
   "GlobalConfiguration": {
