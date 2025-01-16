@@ -18,7 +18,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "post-service",
-          "Port": 7129
+          "Port": 7133
         }
       ],
       "UpstreamPathTemplate": "/api/Image/{imageName}",
@@ -30,7 +30,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "post-service",
-          "Port": 7129
+          "Port": 7133
         }
       ],
       "UpstreamPathTemplate": "/api/Post",
@@ -42,7 +42,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "post-service",
-          "Port": 7129
+          "Port": 7133
         }
       ],
       "UpstreamPathTemplate": "/api/Post/{id}",
@@ -54,7 +54,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "post-service",
-          "Port": 7129
+          "Port": 7133
         }
       ],
       "UpstreamPathTemplate": "/api/Post/user/{userName}",
@@ -66,7 +66,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "post-service",
-          "Port": 7129
+          "Port": 7133
         }
       ],
       "UpstreamPathTemplate": "/api/Post/location",
@@ -78,7 +78,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "post-service",
-          "Port": 7129
+          "Port": 7133
         }
       ],
       "UpstreamPathTemplate": "/api/Post/{postId}/like",
@@ -90,7 +90,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "post-service",
-          "Port": 7129
+          "Port": 7133
         }
       ],
       "UpstreamPathTemplate": "/api/Post/{postId}/dislike",
