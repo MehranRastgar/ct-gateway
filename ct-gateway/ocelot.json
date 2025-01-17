@@ -34,7 +34,10 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Post",
-      "UpstreamHttpMethod": ["GET", "POST"]
+      "UpstreamHttpMethod": ["GET", "POST"],
+      "AddHeadersToUpstream": {
+        "X-Pagination": "{X-Pagination}"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Post/{id}",
@@ -58,7 +61,10 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Post/user/{userName}",
-      "UpstreamHttpMethod": ["GET"]
+      "UpstreamHttpMethod": ["GET"],
+      "AddHeadersToUpstream": {
+        "X-Pagination": "{X-Pagination}"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Post/location",
@@ -70,7 +76,10 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Post/location",
-      "UpstreamHttpMethod": ["GET"]
+      "UpstreamHttpMethod": ["GET"],
+      "AddHeadersToUpstream": {
+        "X-Pagination": "{X-Pagination}"
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Post/{postId}/like",
