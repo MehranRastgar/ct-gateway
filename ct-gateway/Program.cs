@@ -15,11 +15,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
     {
-        builder.WithOrigins(["http://localhost:3026",
-        "https://localhost:3000",
-        "https://192.168.8.103:3000",
-
-         "http://localhost:3000", "https://*.bugtech.ir","https://bugtech.ir", "https://cms.bugtech.ir"]) // origins
+        builder.WithOrigins("https://whatsapp.bugtech.ir", "http://localhost:3000", "https://localhost:3000")
              .AllowAnyMethod()
              .AllowAnyHeader()
              .AllowCredentials();
