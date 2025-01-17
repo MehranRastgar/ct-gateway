@@ -13,7 +13,7 @@
       "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
     },
     {
-      "DownstreamPathTemplate": "/api/Image/{imageName}",
+      "DownstreamPathTemplate": "/api/Image",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -21,7 +21,7 @@
           "Port": 7133
         }
       ],
-      "UpstreamPathTemplate": "/api/Image/{imageName}",
+      "UpstreamPathTemplate": "/api/Image",
       "UpstreamHttpMethod": ["GET"]
     },
     {
