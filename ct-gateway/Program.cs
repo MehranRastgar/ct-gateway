@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
         "https://localhost:3000",
         "https://192.168.8.103:3000",
 
-         "http://localhost:3000", "https://bugtech.ir", "https://cms.bugtech.ir"]) // origins
+         "http://localhost:3000", "https://*.bugtech.ir","https://bugtech.ir", "https://cms.bugtech.ir"]) // origins
              .AllowAnyMethod()
              .AllowAnyHeader()
              .AllowCredentials();
