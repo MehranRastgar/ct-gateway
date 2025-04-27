@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "7001:7001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - fithub-network
+    depends_on:
+      - identity-service
+      - workout-service
+
+  identity-service:
+    image: identity-service:latest
+    ports:
+      - "7132:7132"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7132
+    networks:
+      - fithub-network
+
+  workout-service:
+    image: workout-service:latest
+    ports:
+      - "5084:5084"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5084
+    networks:
+      - fithub-network
+    depends_on:
+      - identity-service
+
+networks:
+  fithub-network:
+    driver: bridge

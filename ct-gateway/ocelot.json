@@ -101,8 +101,6 @@
       "UpstreamHttpMethod": ["GET", "PUT", "DELETE"]
     },
 
-
-
     {
       "DownstreamPathTemplate": "/api/product",
       "DownstreamScheme": "http",
@@ -207,6 +205,246 @@
       ],
       "UpstreamPathTemplate": "/api/Post/{postId}/dislike",
       "UpstreamHttpMethod": ["POST", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WorkoutProgram/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/WorkoutProgram/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WorkoutProgramGenerator/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/WorkoutProgramGenerator/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserPhysicalInfo/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "identity-service",
+          "Port": 7132
+        }
+      ],
+      "UpstreamPathTemplate": "/api/UserPhysicalInfo/{everything}",
+      "UpstreamHttpMethod": ["GET", "PUT", "POST", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/BodyShape/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "identity-service",
+          "Port": 7132
+        }
+      ],
+      "UpstreamPathTemplate": "/api/BodyShape/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/CreateProgram",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/CreateProgram",
+      "UpstreamHttpMethod": ["POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType",
+      "UpstreamHttpMethod": ["GET", "POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/{id}",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/category/{categoryId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/category/{categoryId}",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/equipment/{equipment}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/equipment/{equipment}",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/difficulty/{difficulty}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/difficulty/{difficulty}",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/categories",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/categories",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/equipment-types",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/equipment-types",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ExerciseType/difficulty-levels",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ExerciseType/difficulty-levels",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WorkoutProgram/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/WorkoutProgram/{id}",
+      "UpstreamHttpMethod": ["GET", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WorkoutProgram/user",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/WorkoutProgram/user",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WorkoutProgram/public",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/WorkoutProgram/public",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WorkoutProgram",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/WorkoutProgram",
+      "UpstreamHttpMethod": ["POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/WorkoutProgramGenerator/CreateProgram",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/WorkoutProgramGenerator/CreateProgram",
+      "UpstreamHttpMethod": ["POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserPrograms",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "workout-service",
+          "Port": 5084
+        }
+      ],
+      "UpstreamPathTemplate": "/api/UserPrograms",
+      "UpstreamHttpMethod": ["GET"]
     }
   ],
   "GlobalConfiguration": {

@@ -1,82 +1,92 @@
-# CT Gateway Service
+# 🚪 API Gateway
 
-API Gateway service for the CT Communication platform. This service routes requests to appropriate microservices using Ocelot.
+Gateway مرکزی برای دسترسی به تمام سرویس‌های فیت‌هاب
 
-## Features
+## 📝 توضیحات
 
-- Routes API requests to appropriate microservices
-- Handles authentication and authorization
-- Manages service discovery
-- Provides unified endpoint for client applications
+این Gateway با استفاده از Ocelot پیاده‌سازی شده و به عنوان یک نقطه ورودی واحد برای تمام سرویس‌های فیت‌هاب عمل می‌کند. این Gateway مسیریابی درخواست‌ها به سرویس‌های مختلف را انجام می‌دهد و همچنین مسئول مدیریت CORS و احراز هویت است.
 
-## Prerequisites
+## 🛠️ تکنولوژی‌ها
+
+- ASP.NET Core 8
+- Ocelot
+- Docker
+- Docker Compose
+
+## 📋 پیش‌نیازها
 
 - Docker
-- .NET 7.0 or later
+- Docker Compose
+- .NET 8 SDK (برای توسعه)
 
-## Configuration
+## 🚀 راه‌اندازی پروژه
 
-The gateway routes are configured in `ocelot.json`. The following services are currently supported:
+### روش 1: استفاده از Docker Compose
 
-- Identity Service (Authentication & User Management)
-- Post Service (Social Posts & Images)
-- Book Services (Upload & Translation)
-- TTS Service (Text-to-Speech)
-- Product Service
-
-## Docker Setup
-
-### Build the Image
+1. کلون کردن پروژه:
 
 ```bash
-# Build with Release configuration
-docker build --build-arg BUILD_CONFIGURATION=Release -t ct-gateway:latest .
-
-# Build with Debug configuration
-docker build --build-arg BUILD_CONFIGURATION=Debug -t ct-gateway:latest .
+git clone https://github.com/MehranRastgar/fithub-microservices.git
+cd fithub-microservices/gateway
 ```
 
-### Network Setup
+2. اجرای اسکریپت ساخت و اجرا:
 
 ```bash
-# Create network if it doesn't exist
-docker network create gw
-
-# Connect services to network
-docker network connect gw ct-gateway
-docker network connect gw identity-service
+chmod +x build-and-run.sh
+./build-and-run.sh
 ```
 
-### Run Container
+### روش 2: اجرای دستی
+
+1. ساخت تصاویر Docker:
 
 ```bash
-# Run the gateway service
-docker run -d --name ct-gateway --network gw -p 7001:7001 ct-gateway
+# ساخت تصویر Identity Service
+cd ../IdentityService
+docker build -t identity-service:latest .
 
-# Run with immediate rebuild
-docker run -d --name ct-gateway --network gw -p 7001:7001 ct-gateway --build
+# ساخت تصویر Workout Service
+cd ../WorkoutService
+docker build -t workout-service:latest .
+
+# برگشت به پوشه Gateway
+cd ../gateway
 ```
 
-### Maintenance Commands
+2. اجرای سرویس‌ها با Docker Compose:
 
 ```bash
-# Stop the container
-docker stop ct-gateway
-
-# Remove the container
-docker rm ct-gateway
+docker-compose up -d
 ```
 
-## API Documentation
+## 🔄 مسیرهای API
 
-The gateway serves as a reverse proxy and routes requests to the following base endpoints:
+### Identity Service
 
-- `/api/auth/*` - Authentication endpoints
-- `/api/user/*` - User management
-- `/api/post/*` - Social posts and interactions
-- `/api/books/*` - Book management
-- `/api/translation/*` - Book translation
-- `/api/tts/*` - Text-to-speech
-- `/api/product/*` - Product management
+- `GET /api/auth/{everything}` - دسترسی به API‌های احراز هویت
+- `GET /api/User/{everything}` - دسترسی به API‌های کاربر
 
-For detailed API documentation, please refer to individual service documentation.
+### Workout Service
+
+- `GET /api/WorkoutProgram/{everything}` - دسترسی به API‌های برنامه تمرینی
+- `GET /api/WorkoutProgramGenerator/{everything}` - دسترسی به API‌های تولید برنامه تمرینی
+- `GET /api/ExerciseType/{everything}` - دسترسی به API‌های نوع تمرین
+
+## 🔒 امنیت
+
+- تمام درخواست‌ها از طریق Gateway عبور می‌کنند
+- احراز هویت با JWT
+- مدیریت CORS برای دسترسی از دامنه‌های مجاز
+
+## 🔜 برنامه‌های آینده
+
+- [ ] اضافه کردن Rate Limiting
+- [ ] اضافه کردن Caching
+- [ ] اضافه کردن Load Balancing
+- [ ] اضافه کردن Circuit Breaker
+- [ ] اضافه کردن Monitoring و Logging
+
+## 📄 لایسنس
+
+این پروژه تحت لایسنس [MIT](LICENSE) منتشر شده است.
