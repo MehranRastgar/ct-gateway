@@ -216,14 +216,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/WorkoutProgram/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
-      "AddHeadersToDownstream": {
-        "Authorization": "{Authorization}"
-      }
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/WorkoutProgramGenerator/{everything}",
@@ -235,14 +228,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/WorkoutProgramGenerator/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
-      "AddHeadersToDownstream": {
-        "Authorization": "{Authorization}"
-      }
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/ExerciseType/{everything}",
@@ -254,14 +240,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/ExerciseType/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
-      "AddHeadersToDownstream": {
-        "Authorization": "{Authorization}"
-      }
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/UserPhysicalInfo/{everything}",
@@ -273,14 +252,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/UserPhysicalInfo/{everything}",
-      "UpstreamHttpMethod": ["GET", "PUT", "POST", "DELETE"],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
-      "AddHeadersToDownstream": {
-        "Authorization": "{Authorization}"
-      }
+      "UpstreamHttpMethod": ["GET", "PUT", "POST", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/BodyShape/{everything}",
@@ -292,14 +264,7 @@
         }
       ],
       "UpstreamPathTemplate": "/api/BodyShape/{everything}",
-      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
-      "AddHeadersToDownstream": {
-        "Authorization": "{Authorization}"
-      }
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/CreateProgram",
@@ -543,6 +508,10 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:7001"
+    "BaseUrl": "http://localhost:7001",
+    "RequestIdKey": "Request-Id",
+    "AddHeadersToDownstream": {
+      "Authorization": "{Authorization}"
+    }
   }
 }
