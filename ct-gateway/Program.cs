@@ -15,10 +15,9 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builder =>
     {
-        builder.WithOrigins("https://whatsapp.bugtech.ir", "http://localhost:3000", "https://localhost:3000", "http://localhost:5084", "http://localhost:7132", "https://fithub.bugtech.ir")
-             .AllowAnyMethod()
-             .AllowAnyHeader()
-             .AllowCredentials();
+        builder.AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader();
     });
 });
 var app = builder.Build();
