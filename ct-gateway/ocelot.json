@@ -48,6 +48,18 @@
       "UpstreamPathTemplate": "/api/auth/{everything}",
       "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
     },
+    {
+      "DownstreamPathTemplate": "/api/Otp/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "identity-service",
+          "Port": 7132
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Otp/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    },
 
     {
       "DownstreamPathTemplate": "/api/User/register",
