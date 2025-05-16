@@ -517,6 +517,42 @@
       ],
       "UpstreamPathTemplate": "/api/Workout/{id}",
       "UpstreamHttpMethod": ["DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/VersionCheck/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "app-service",
+          "Port": 5089
+        }
+      ],
+      "UpstreamPathTemplate": "/api/VersionCheck/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/PlatformVersion/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "app-service",
+          "Port": 5089
+        }
+      ],
+      "UpstreamPathTemplate": "/api/PlatformVersion/{everything}",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/DownloadApp/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "app-service",
+          "Port": 5089
+        }
+      ],
+      "UpstreamPathTemplate": "/api/DownloadApp/{everything}",
+      "UpstreamHttpMethod": ["GET"]
     }
   ],
   "GlobalConfiguration": {
